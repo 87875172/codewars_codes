@@ -1,0 +1,5 @@
+#need optimize
+#http://www.codewars.com/kata/52fba66badcd10859f00097e/train/python
+
+def disemvowel(string):
+    return string.replace('a','').replace('e','').replace('i','').replace('o','').replace('u','').replace('A','').replace('E','').replace('I','').replace('O','').replace('U','')
