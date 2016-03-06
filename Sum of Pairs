@@ -1,0 +1,43 @@
+#http://www.codewars.com/kata/54d81488b981293527000c8f/train/python
+
+#first brutal force approach. O(n^2) time complexity. Doesn't work for very large ints.
+
+def sum_pairs(ints, s):
+    pair = []
+    ind = []
+    for i in xrange(len(ints)):
+        for j in xrange(len(ints[i+1:len(ints)+1])):
+            if ints[i] + ints[i+j+1] == s:
+                pair.append([ints[i],ints[i+j+1]])
+                ind.append(i+j+1)
+    if pair:
+        return pair[ind.index(min(ind))]
+
+
+# test cases
+l5= [10, 5, 2, 3, 7, 5]
+l8= [5, 9, 13, -3]
+
+print sum_pairs(l8,10)
+print sum_pairs(l5,10)
+
+#second try. Used recursion. Error: Maximum recursion depth exceeded. Doesn't work for very large ints.
+
+def sum_pairs(ints, s):
+    pairs = []
+    num = ints[:]
+    ind = []
+    def rec(ints,s):
+        #print 'pairs ' + str(pairs)
+        if ints:
+            #print 's - ints[0] ' + str(s - ints[0])
+            #print 'ints[1:] ' + str(ints[1:])
+            if s - ints[0] in ints[1:]:
+                pairs.append([ints[0], s - ints[0]])
+                ind.append(ints[1:].index(s - ints[0]))
+            return rec(ints[1:], s)
+        elif pairs:
+            return pairs[ind.index(min(ind))]
+        else:
+            pass
+    return rec(ints, s)
