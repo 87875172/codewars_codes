@@ -3,3 +3,9 @@
 
 def disemvowel(string):
     return string.replace('a','').replace('e','').replace('i','').replace('o','').replace('u','').replace('A','').replace('E','').replace('I','').replace('O','').replace('U','')
+
+
+#best solution
+
+def disemvowel(s):
+    return s.translate(None, "aeiouAEIOU")
