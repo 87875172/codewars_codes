@@ -1,4 +1,6 @@
+#Unsolved
 #http://www.codewars.com/kata/54d81488b981293527000c8f/train/python
+
 
 #first brutal force approach. O(n^2) time complexity. Doesn't work for very large ints.
 
