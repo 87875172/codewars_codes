@@ -1,0 +1,29 @@
+#http://www.codewars.com/kata/find-the-parity-outlier
+
+#O(n) solution, not very clean
+def find_outlier(integers):
+    if integers[0] % 2 == 0:
+        if integers[1] % 2 == 0:
+            Parity = 2
+        else:
+            if integers[2] % 2 == 0:
+                Parity = 2
+            else:
+                Parity = 1
+    if integers[0] % 2 == 1:
+        if integers[1] % 2 == 1:
+            Parity = 1
+        else:
+            if integers[2] % 2== 1:
+                Parity = 1
+            else:
+                Parity = 2
+                
+    if Parity == 2:
+        for i in integers:
+            if i % 2 == 1:
+                return i
+    else:
+        for j in integers:
+            if j % 2 == 0:
+                return j
