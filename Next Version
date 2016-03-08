@@ -1,0 +1,14 @@
+#http://www.codewars.com/kata/56c0ca8c6d88fdb61b000f06
+
+def next_version(version):
+    points = version.count('.')
+    a = int(version.replace('.',''))
+    a = str(a + 1)
+    a = '.'.join(a)
+    def checkpoints(a):
+        if a.count('.') != points:
+            a = a.partition('.')
+            return checkpoints(a[0]+a[2])
+        else:
+            return a
+    return checkpoints(a)
